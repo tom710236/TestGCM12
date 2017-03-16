@@ -13,8 +13,10 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, RegistrationIntentService.class);
         startService(intent);
-        /**查詢手機IMEI
-         * 用模擬器會當機
+
+
+
+        /**
          * TelephonyManager mTelManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
          String IMEI = mTelManager.getDeviceId();
          String IMSI = mTelManager.getSubscriberId();
@@ -22,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
          textView.setText(IMEI);
          */
 
-
-
-
     }
+
 }
