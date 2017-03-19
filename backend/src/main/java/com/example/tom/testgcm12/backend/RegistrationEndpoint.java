@@ -27,6 +27,7 @@ import static com.example.tom.testgcm12.backend.OfyService.ofy;
  * NOTE: This endpoint does not use any form of authorization or
  * authentication! If this app is deployed, anyone can access this endpoint! If
  * you'd like to add authentication, take a look at the documentation.
+ * 目的是能讓手持裝置可以連上來註冊它的RID，此類別中有三個方法，註冊時呼叫registerDevice方法，而它的對外服務名稱為「register」，如下圖的標示name值:
  */
 @Api(
         name = "registration",

@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //執行IntentService
         //Intent intent = new Intent(this, RegistrationIntentService.class);
         //startService(intent);
 
@@ -74,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 //post 失敗後執行
                 @Override
                 public void onFailure(Call call, IOException e) {
-
                 }
                 //post 成功後執行
                 @Override
@@ -87,11 +87,8 @@ public class MainActivity extends AppCompatActivity {
                     //所要執行的方法
                     parseJson(json);
                 }
-
                 //方法
                 public void parseJson(String json) {
-
-
                     try {
                         //從回傳資料json 抓取cStatus項目裡的內容
                         cStatus = new JSONObject(json).getString("cStatus");
@@ -113,8 +110,6 @@ public class MainActivity extends AppCompatActivity {
                             setting.edit()
                                     .putString("userName",userName)
                                     .commit();
-
-
                         }
                         else{
                             //非主執行緒顯示UI(Toast)
@@ -125,20 +120,12 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         }
-
-
                     } catch (JSONException e) {
 
                         e.printStackTrace();
                     }
-
-
                 }
-
-
             });
-
         }
     }
-
 }

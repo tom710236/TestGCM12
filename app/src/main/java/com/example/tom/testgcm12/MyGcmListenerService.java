@@ -19,6 +19,7 @@ import com.google.android.gms.gcm.GcmListenerService;
 
 /**
  * Created by TOM on 2017/3/16.
+ * 雲端推播訊息傾聽服務
  */
 
 public class MyGcmListenerService extends GcmListenerService {
@@ -29,12 +30,15 @@ public class MyGcmListenerService extends GcmListenerService {
     @Override
     public void onMessageReceived(String s, Bundle bundle) {
         super.onMessageReceived(s, bundle);
+        //推播的Sender id
         Log.d("MyGcmListenerService", "From "+s);
+        //推播訊息的值
         Log.d("MyGcmListenerService", "Message "+
                 bundle.getString("message"));
         message = bundle.getString("message");
         Log.e("MESSAGE",message);
         //time();
+        //推播圖示
         makeNotification();
 
 

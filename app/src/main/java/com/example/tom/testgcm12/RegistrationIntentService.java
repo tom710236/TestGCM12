@@ -24,6 +24,7 @@ import okhttp3.Response;
 
 /**
  * Created by TOM on 2017/3/16.
+ * 執行APP後，當RegistrationIntentService啟動後，取得InstanceID的token值
  */
 
 public class RegistrationIntentService extends IntentService {
@@ -38,6 +39,7 @@ public class RegistrationIntentService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         InstanceID instanceID = InstanceID.getInstance(this);
         try {
+            // res/values/strings.xml String resource，建立名稱叫gcm_sender_id的字串，將GCM申請的Sender id填進去
             token = instanceID.getToken(getString(R.string.gcm_sender_id),
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             Log.d("MyInstanceID", token);
@@ -47,7 +49,7 @@ public class RegistrationIntentService extends IntentService {
                 public void run() {
                     Toast.makeText(getApplicationContext(), token, Toast.LENGTH_LONG).show();
                 }});
-
+            //執行執行緒
             pass pass = new pass();
             pass.start();
 
@@ -60,7 +62,7 @@ public class RegistrationIntentService extends IntentService {
         }
 
     }
-
+    //執行緒 POST IMEI 和 token
     class pass extends Thread {
         @Override
         public void run() {

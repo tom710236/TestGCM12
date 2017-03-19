@@ -30,6 +30,7 @@ import static com.example.tom.testgcm12.backend.OfyService.ofy;
  * NOTE: This endpoint does not use any form of authorization or
  * authentication! If this app is deployed, anyone can access this endpoint! If
  * you'd like to add authentication, take a look at the documentation.
+ * 目的是提供傳送雲端訊息的呼叫介面
  */
 @Api(
         name = "messaging",
